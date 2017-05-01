@@ -102,6 +102,8 @@ XSetStandardProperties(mydisplay,mywindow,hello,hello,None,argv,argc,&myhint
             break;
         }
 XDrawRectangle(mydisplay, mywindow, mygc, 20, 25, 960, 50);
+XDrawRectangle(mydisplay, mywindow, mygc, 900, 37, 25, 25);
+XDrawRectangle(mydisplay, mywindow, mygc, 940, 37, 25, 25);
 XDrawRectangle(mydisplay, mywindow, mygc, 980, 25, 150, 50);
 XDrawRectangle(mydisplay, mywindow, mygc, 1130, 25, 150, 50);
 XDrawRectangle(mydisplay, mywindow, mygc, 20, 75, 160,750);
