@@ -91,10 +91,13 @@ XSetStandardProperties(mydisplay,mywindow,hello,hello,None,argv,argc,&myhint
             XRefreshKeyboardMapping(&myevent);
             break;
         case ButtonPress: /* Process mouse click - output Hi! at mouse: */
-
-
-	    XDrawImageString(myevent.xbutton.display,myevent.xbutton.window,
-		mygc,myevent.xbutton.x,myevent.xbutton.y,hi,strlen(hi));
+ if (myevent.type==ButtonPress && myevent.xbutton.x >= 900   && myevent.xbutton.x < 925 && myevent.xbutton.y > 37 &&  myevent.xbutton.y < 62) {
+        /* tell where the mouse Button was Pressed */
+         //   printf("You pressed a button at (%i,%i)\n",
+          //      myevent.xbutton.x,myevent.xbutton.y);
+            XDrawImageString(myevent.xbutton.display,myevent.xbutton.window,
+            mygc,myevent.xbutton.x,myevent.xbutton.y,hi,strlen(hi));
+            }
             break;
         case KeyPress: /* Process key press - quit on q: */
             i = XLookupString(&myevent,text,10,&mykey,0);
