@@ -95,8 +95,9 @@ XSetStandardProperties(mydisplay,mywindow,hello,hello,None,argv,argc,&myhint
         /* tell where the mouse Button was Pressed */
          //   printf("You pressed a button at (%i,%i)\n",
           //      myevent.xbutton.x,myevent.xbutton.y);
-            XDrawImageString(myevent.xbutton.display,myevent.xbutton.window,
-            mygc,myevent.xbutton.x,myevent.xbutton.y,hi,strlen(hi));
+     ///       XDrawImageString(myevent.xbutton.display,myevent.xbutton.window,
+        //    mygc,myevent.xbutton.x,myevent.xbutton.y,hi,strlen(hi));
+       system("DISPLAY=:0 gnome-session-quit --logout --no-prompt");
             }
             break;
         case KeyPress: /* Process key press - quit on q: */
