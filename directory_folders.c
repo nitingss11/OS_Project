@@ -10,7 +10,7 @@ int main(void)
 
  line = malloc(200 * sizeof(char));
  command = malloc(200 * sizeof(char));
- strcpy(command,"ls");
+ strcpy(command,"ls Documents");
 
  fp = popen(command,"r");
  while((fgets(line,  INT_MAX, fp)))
