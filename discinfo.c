@@ -71,6 +71,7 @@ int main(void)
  FILE* fp;
  char* command;
  char* line;
+char *st = malloc(200* sizeof(char));
 
  line = malloc(200 * sizeof(char));
  command = malloc(200 * sizeof(char));
@@ -83,26 +84,32 @@ int main(void)
      
      tokens = str_split(line, ' ');
   if (tokens)
-    {  
+    { 
+     
        int token_i=0;
        while(trim(*(tokens+token_i))=="\0"){token_i++;}
-       printf("\nDisc     :\n%s", *(tokens + token_i));
+       //char* tes ="DISC : \n";
+       strcat(st,"DISC : \n");
+     //  printf("%s \n",st);
+    
+       strcat(st,*(tokens + token_i));
+     //  printf("\nDisc     :\n%s", *(tokens + token_i));
+       strcat(st,"\n");
+
        token_i++;
+    //   printf("%s \n",st);
        while(trim(*(tokens+token_i))=="\0"){token_i++;}
-       printf("\nSize     :\n%s", *(tokens + token_i));
-       printf("\n");
+       strcat(st,"Size : \n");
+       strcat(st,*(tokens + token_i));
+       strcat(st,"\n");
+       //st=strcat(st,"\n");
        token_i++; 
-       /*while(trim(*(tokens+token_i))=="\0"){token_i++;} 
-       printf("\n%s",*(tokens + token_i));
-       printf("\nUsed     :\n%s", *(tokens + token_i));
-       token_i++;  
-       //printf("\nAvailable:\n%s", *(tokens + 3)); 
-*/
+     
         
     }
 
   //printf("%s \n",line);
  }
-
+printf("%s \n",st);
  return 0;
 }
