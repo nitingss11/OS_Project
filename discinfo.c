@@ -1,4 +1,4 @@
-) #include <stdio.h>
+#include <stdio.h>
 #include <stdlib.h>
 #include <limits.h>
 #include <assert.h>
@@ -11,7 +11,7 @@ char** str_split(char* a_str, const char a_delim)
     char* last_comma = 0;
     char delim[2];
     delim[0] = a_delim;
-/    delim[1] = 0;
+   delim[1] = 0;
 
     /* Count how many elements will be extracted. */
     while (*tmp)
@@ -21,7 +21,7 @@ char** str_split(char* a_str, const char a_delim)
             count++;
             last_comma = tmp;
         }
-/        tmp++;
+       tmp++;
     }
 
     /* Add space for trailing token. */
@@ -37,8 +37,7 @@ char** str_split(char* a_str, const char a_delim)
     {
         size_t idx  = 0;
         char* token = strtok(a_str, delim);
-        //changes to resolve parsing
-        printf(token);
+        
         while (token)
         {
             assert(idx < count);
@@ -51,7 +50,22 @@ char** str_split(char* a_str, const char a_delim)
 
     return result;
 }
+//*****************************trim function 
+char *trim(char *str)
+{
+char ptr[strlen(str)+1];
+int i,j=0;
+for(i=0;str[i]!='\0';i++)
+{
+if (str[i] != ' ' && str[i] != '\t') 
+ptr[j++]=str[i];
+} 
+ptr[j]='\0';
+str=ptr;
+return str;
+}
 
+//******************************
 int main(void)
 {
  FILE* fp;
@@ -69,13 +83,24 @@ int main(void)
      
      tokens = str_split(line, ' ');
   if (tokens)
-    {
-       printf("Disc     :\n%s", *(tokens + 0)); 
-       printf("\nSize     :\n%s", *(tokens + 1)); 
-       printf("\nUsed     :\n%s", *(tokens + 2)); 
+    {  
+       int token_i=0;
+       while(trim(*(tokens+token_i))=="\0"){token_i++;}
+       printf("\nDisc     :\n%s", *(tokens + token_i));
+       token_i++;
+       while(trim(*(tokens+token_i))=="\0"){token_i++;}
+       printf("\nSize     :\n%s", *(tokens + token_i));
+       printf("\n");
+       token_i++; 
+       /*while(trim(*(tokens+token_i))=="\0"){token_i++;} 
+       printf("\n%s",*(tokens + token_i));
+       printf("\nUsed     :\n%s", *(tokens + token_i));
+       token_i++;  
        //printf("\nAvailable:\n%s", *(tokens + 3)); 
+*/
         
     }
+
   //printf("%s \n",line);
  }
 
