@@ -1,4 +1,4 @@
- #include <stdio.h>
+) #include <stdio.h>
 #include <stdlib.h>
 #include <limits.h>
 #include <assert.h>
@@ -16,7 +16,7 @@ char** str_split(char* a_str, const char a_delim)
     /* Count how many elements will be extracted. */
     while (*tmp)
     { //changes to resolve parsing
-        if (a_delim == *tmp &&(*(tmp+1)!=' ')
+        if (a_delim == *tmp &&(*(tmp+1)!=' '))
         {  
             count++;
             last_comma = tmp;
@@ -63,6 +63,7 @@ int main(void)
  strcpy(command,"pydf");
 
  fp = popen(command,"r");
+ fgets(line,  INT_MAX, fp);
  while((fgets(line,  INT_MAX, fp)))
  {  char** tokens;
      
