@@ -1,4 +1,4 @@
-#include <stdio.h>
+ #include <stdio.h>
 #include <stdlib.h>
 #include <limits.h>
 #include <assert.h>
@@ -15,9 +15,9 @@ char** str_split(char* a_str, const char a_delim)
 
     /* Count how many elements will be extracted. */
     while (*tmp)
-    {
-        if (a_delim == *tmp)
-        {
+    { //changes to resolve parsing
+        if (a_delim == *tmp &&(*(tmp+1)!=' ')
+        {  
             count++;
             last_comma = tmp;
         }
@@ -37,7 +37,8 @@ char** str_split(char* a_str, const char a_delim)
     {
         size_t idx  = 0;
         char* token = strtok(a_str, delim);
-
+        //changes to resolve parsing
+        printf(token);
         while (token)
         {
             assert(idx < count);
