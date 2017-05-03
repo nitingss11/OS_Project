@@ -11,7 +11,7 @@ char** str_split(char* a_str, const char a_delim)
     char* last_comma = 0;
     char delim[2];
     delim[0] = a_delim;
-    delim[1] = 0;
+/    delim[1] = 0;
 
     /* Count how many elements will be extracted. */
     while (*tmp)
@@ -21,7 +21,7 @@ char** str_split(char* a_str, const char a_delim)
             count++;
             last_comma = tmp;
         }
-        tmp++;
+/        tmp++;
     }
 
     /* Add space for trailing token. */
@@ -73,7 +73,7 @@ int main(void)
        printf("Disc     :\n%s", *(tokens + 0)); 
        printf("\nSize     :\n%s", *(tokens + 1)); 
        printf("\nUsed     :\n%s", *(tokens + 2)); 
-       printf("\nAvailable:\n%s", *(tokens + 3)); 
+       //printf("\nAvailable:\n%s", *(tokens + 3)); 
         
     }
   //printf("%s \n",line);
