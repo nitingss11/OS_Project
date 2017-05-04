@@ -3,7 +3,7 @@
 Encoding = UTF-8
 Name=own
 Comment= Our OS Project
-Exec=/home/nitin/testRectangle
+Exec=/home/nitin/finalOS
 Icon= 
 Type=Application
 X-Ubuntu-Gettext-Domain= gdm
